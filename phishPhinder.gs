@@ -14,7 +14,7 @@ function phishPhinder()
   for (var i = 0; i < threads.length; i++) 
   {
     //Checks if thread is unread, speeds up execution if last 10 threads are viewed
-    if(threads[i].isUnread() || 0 == 0)
+    if(threads[i].isUnread())
     {
       //Gets the actual emails (messages) from the thread and stores it in a var
       //Some threads contain multiple messages
@@ -27,7 +27,7 @@ function phishPhinder()
 
         //Checks email headers to see if they contain key phishing phrases
         //Adds the phishing label to the thread if the phrases are found
-        if(body.indexOf("psm.knowbe4.com")>-1||body.indexOf("X-PHISH-CRID")>-1)
+        if(body.indexOf("psm.knowbe4.com")>-1 || body.indexOf("X-PHISH-CRID")>-1)
           label.addToThread(threads[i]);
       }       
     }
